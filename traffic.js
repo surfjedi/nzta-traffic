@@ -1,33 +1,32 @@
 var https = require('https'),
+    nztaConfig = require('./nztaConfig.json'),
     xml2js = require('xml2js');
 
-//var ref = process.argv[2];
+
 
 // Remove console log in production mode
 if(process.env.NODE_ENV == "production")
 {
     console.log = function(){};
 }
+//TODO: remove production here once module is working
 if(process.env.NODE_ENV == "test" || process.env.NODE_ENV == "production")
 {
     ref = process.argv[2];
 }
 
 //var ref = "AKL-SH1-NB-RNM";
+
 var nztaOptions = {
     host: 'infoconnect1.highwayinfo.govt.nz',
     port: 443,
     path: '/ic/jbi/SsdfJourney2/REST/FeedService/journey/' + ref,
     headers: {
-        "username": "LeeB",
-        "password": "H9r8z6w3g9"
+        "username": nztaConfig.username,
+        "password": nztaConfig.password
     }
 };
-//request('https://google.com', function (error, response, body) {
-//    if (!error && response.statusCode == 200) {
-//        console.log(body) // Print the google web page.
-//    }
-//})
+
 
 function getData() {
     https.get(nztaOptions, function(nztaResponse) {

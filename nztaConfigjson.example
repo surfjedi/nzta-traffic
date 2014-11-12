@@ -1,0 +1,6 @@
+//rename this to nztaConfig.json and add your login details
+
+{
+    "username": "YOUR_USERNAME",
+    "password": "YOUR_PASSWORD"
+}
