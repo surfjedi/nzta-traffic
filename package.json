@@ -2,7 +2,7 @@
   "name": "nzta_traffic",
   "version": "0.1.1",
   "description": "module to make calls to nzta traffic api for travel times",
-  "main": ",/traffic.js",
+  "main": "./traffic.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
