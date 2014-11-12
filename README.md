@@ -21,7 +21,7 @@ it will return json:
   minutes: '35',
   pollDateTime: '2014-11-12T21:54:13.227+13:00' }
 
-  ###To install for #1:
+  ### To install for #2:
 
   1. npm install nzta_traffic
   2. set up nztaConfig.json as per the nztaConfigjson.example
