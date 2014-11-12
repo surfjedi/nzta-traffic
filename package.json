@@ -1,6 +1,6 @@
 {
   "name": "nzta_traffic",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "module to make calls to nzta traffic api for travel times",
   "main": ",/traffic.js",
   "scripts": {
@@ -10,6 +10,14 @@
     "nzta",
     "traffic"
   ],
+  "homepage": "https://github.com/surfjedi/nzta-traffic",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/surfjedi/nzta-traffic.git"
+  },
+  "bugs": {
+    "url": "http://github.com/surfjedi/nzta-traffic/issues"
+  },
   "author": "Lee Blazek <info@berzerk.co.nz> (http://berzerk.co.nz/)",
   "license": "mit",
   "dependencies": {
