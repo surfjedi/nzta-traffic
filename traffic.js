@@ -1,26 +1,26 @@
 var https = require('https'),
-    nztaConfig = require('./nztaConfig.json'),
     xml2js = require('xml2js');
 
-
+if(process.env.NODE_ENV !== "test")
+{
+    nztaConfig = require( '../../config/nztaConfig.json')
+}
 
 // Remove console log in production mode
 if(process.env.NODE_ENV == "production")
 {
     console.log = function(){};
 }
-//TODO: remove production here once module is working
-if(process.env.NODE_ENV == "test" || process.env.NODE_ENV == "production")
+if(process.env.NODE_ENV == "test")
 {
+    nztaConfig = require( './nztaConfig.json');
     ref = process.argv[2];
-    getData();
 
 }
 
 //var ref = "AKL-SH1-NB-RNM";
 
-
-function getData() {
+function getTravelTime(ref) {
 
     var nztaOptions = {
         host: 'infoconnect1.highwayinfo.govt.nz',
@@ -36,13 +36,13 @@ function getData() {
         var nztaData = '';
 
         if (nztaResponse.statusCode !== 200) {
-            console.log(nztaResponse.statusCode);
+            console.log('Problem with route: ' + ref + ' status code: ' + nztaResponse.statusCode);
         } else {
             nztaResponse.on('data', function(chunk) {
                 // chunk response from NZTA
                 nztaData += chunk;
                 var message = "" + chunk;
-                console.log('Received response of ' + message.length + ' bytes from nzta.');
+                //console.log('Received response of ' + message.length + ' bytes from nzta.');
             });
 
             nztaResponse.on('end', function() {
@@ -77,5 +77,10 @@ function getData() {
     });
 }
 
+if(process.env.NODE_ENV == "test")
+{
+    getTravelTime(ref);
+}
+//getData();
 
-module.exports.getData = getData;
+module.exports.getTravelTime = getTravelTime;
