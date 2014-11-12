@@ -5,7 +5,10 @@ There are two ways to use this module:
 1. Normal node module in an app
 2. As command line tool
 
-###To install for #1:
+####Make sure you have api access:
+https://infoconnect.highwayinfo.govt.nz/opencms/opencms/InfoConnect/for-developers/index.html
+
+### To install for #1:
 
 1. npm install nzta_traffic
 2. set up config/nztaConfig.json as per the nztaConfigjson.example
@@ -21,7 +24,7 @@ it will return json:
   minutes: '35',
   pollDateTime: '2014-11-12T21:54:13.227+13:00' }
 
-  ### To install for #2:
+### To install for #2:
 
   1. npm install nzta_traffic
   2. set up nztaConfig.json as per the nztaConfigjson.example

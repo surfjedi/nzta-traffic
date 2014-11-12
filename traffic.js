@@ -1,6 +1,6 @@
 var https = require('https'),
     xml2js = require('xml2js');
-
+//TODO: better way to absolute path the config
 if(process.env.NODE_ENV !== "test")
 {
     nztaConfig = require( '../../config/nztaConfig.json')
@@ -48,6 +48,8 @@ function getTravelTime(ref) {
             nztaResponse.on('end', function() {
                 // final response, now process data
                 console.log('response end.');
+
+                //TODO:convert to promises
                 try {
                     xml2js.parseString(nztaData, function(err, result) {
                         //console.log(nztaData);
@@ -81,6 +83,5 @@ if(process.env.NODE_ENV == "test")
 {
     getTravelTime(ref);
 }
-//getData();
 
 module.exports.getTravelTime = getTravelTime;
