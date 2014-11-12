@@ -13,22 +13,25 @@ if(process.env.NODE_ENV == "production")
 if(process.env.NODE_ENV == "test" || process.env.NODE_ENV == "production")
 {
     ref = process.argv[2];
+    getData();
+
 }
 
 //var ref = "AKL-SH1-NB-RNM";
 
-var nztaOptions = {
-    host: 'infoconnect1.highwayinfo.govt.nz',
-    port: 443,
-    path: '/ic/jbi/SsdfJourney2/REST/FeedService/journey/' + ref,
-    headers: {
-        "username": nztaConfig.username,
-        "password": nztaConfig.password
-    }
-};
-
 
 function getData() {
+
+    var nztaOptions = {
+        host: 'infoconnect1.highwayinfo.govt.nz',
+        port: 443,
+        path: '/ic/jbi/SsdfJourney2/REST/FeedService/journey/' + ref,
+        headers: {
+            "username": nztaConfig.username,
+            "password": nztaConfig.password
+        }
+    };
+
     https.get(nztaOptions, function(nztaResponse) {
         var nztaData = '';
 
@@ -74,6 +77,5 @@ function getData() {
     });
 }
 
-getData();
 
 module.exports.getData = getData;
