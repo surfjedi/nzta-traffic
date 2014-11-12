@@ -1,0 +1,18 @@
+{
+  "name": "nzta_traffic",
+  "version": "0.1.0",
+  "description": "module to make calls to nzta traffic api for travel times",
+  "main": ",/traffic.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nzta",
+    "traffic"
+  ],
+  "author": "Lee Blazek <info@berzerk.co.nz> (http://berzerk.co.nz/)",
+  "license": "mit",
+  "dependencies": {
+    "xml2js": "^0.4.4"
+  }
+}
