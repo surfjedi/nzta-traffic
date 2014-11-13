@@ -16,11 +16,12 @@ if(process.env.NODE_ENV == "test")
     nztaConfig = require( './nztaConfig.json');
     ref = process.argv[2];
 
+
 }
 
 //var ref = "AKL-SH1-NB-RNM";
 
-function getTravelTime(ref) {
+function getTravelTime(ref, callback) {
 
     var nztaOptions = {
         host: 'infoconnect1.highwayinfo.govt.nz',
@@ -41,7 +42,7 @@ function getTravelTime(ref) {
             nztaResponse.on('data', function(chunk) {
                 // chunk response from NZTA
                 nztaData += chunk;
-                var message = "" + chunk;
+                //var message = "" + chunk;
                 //console.log('Received response of ' + message.length + ' bytes from nzta.');
             });
 
@@ -66,7 +67,7 @@ function getTravelTime(ref) {
 
 
                         console.log(journey );
-                        //callback(journey);
+                        callback(journey);
 
                     });
                 } catch (e) {
@@ -81,7 +82,9 @@ function getTravelTime(ref) {
 
 if(process.env.NODE_ENV == "test")
 {
-    getTravelTime(ref);
+    getTravelTime(ref, function(val){
+        console.log('test callback got data: ' +  JSON.stringify(val))
+    });
 }
 
 module.exports.getTravelTime = getTravelTime;
